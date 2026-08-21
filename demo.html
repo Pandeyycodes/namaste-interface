@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Hubble</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>Hubble</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="solution.html" class="nav-link">Solution</a></li>
+                <li><a href="team.html" class="nav-link">Team</a></li>
+                <li><a href="demo.html" class="nav-link active">Demo</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Try Hubble Demo</h1>
+                <p class="hero-subtitle">Experience the power of intelligent terminology mapping in action</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Interface -->
+    <section class="demo-interface">
+        <div class="container">
+            <div class="demo-content">
+                <div class="demo-header">
+                    <h2 class="section-title">Interactive Demo</h2>
+                    <p class="section-subtitle">Test our NAMASTE-ICD11 terminology service with real data</p>
+                </div>
+                
+                <div class="demo-container">
+                    <div class="demo-tabs">
+                        <button class="tab-btn active" data-tab="nlp">
+                            <i class="fas fa-brain"></i>
+                            AI Diagnosis
+                        </button>
+                        <button class="tab-btn" data-tab="search">
+                            <i class="fas fa-search"></i>
+                            Search & Autocomplete
+                        </button>
+                        <button class="tab-btn" data-tab="translate">
+                            <i class="fas fa-exchange-alt"></i>
+                            Translation
+                        </button>
+                        <button class="tab-btn" data-tab="upload">
+                            <i class="fas fa-upload"></i>
+                            Data Upload
+                        </button>
+                        <button class="tab-btn" data-tab="vision">
+                            <i class="fas fa-file-medical"></i>
+                            Report Digitization
+                        </button>
+                        <button class="tab-btn" data-tab="analytics">
+                            <i class="fas fa-chart-bar"></i>
+                            Analytics
+                        </button>
+                    </div>
+
+                    <!-- AI Diagnosis Tab -->
+                    <div class="tab-content active" id="nlp">
+                        <div class="demo-section">
+                            <h3>🤖 AI-Powered Diagnosis Processing</h3>
+                            <p>Enter a diagnosis in English or local language. Our AI will process it and suggest both AYUSH and biomedical codes.</p>
+                            
+                            <div class="nlp-demo">
+                                <div class="nlp-form">
+                                    <div class="form-group">
+                                        <label for="diagnosisText">Doctor's Diagnosis</label>
+                                        <textarea id="diagnosisText" placeholder="Enter diagnosis (e.g., 'Patient has diabetes with heart complications' or 'रोगी को मधुमेह है')" rows="3"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="inputLanguage">Input Language</label>
+                                        <select id="inputLanguage">
+                                            <option value="en">English</option>
+                                            <option value="hi">Hindi (हिंदी)</option>
+                                            <option value="ta">Tamil (தமிழ்)</option>
+                                            <option value="te">Telugu (తెలుగు)</option>
+                                            <option value="kn">Kannada (ಕನ್ನಡ)</option>
+                                            <option value="ml">Malayalam (മലയാളം)</option>
+                                            <option value="bn">Bengali (বাংলা)</option>
+                                            <option value="gu">Gujarati (ગુજરાતી)</option>
+                                            <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <button onclick="processDiagnosis()" class="btn btn-primary">
+                                        <i class="fas fa-brain"></i> Process with AI
+                                    </button>
+                                </div>
+                                
+                                <div id="diagnosisResults" class="diagnosis-results">
+                                    <div class="demo-placeholder">
+                                        <i class="fas fa-stethoscope"></i>
+                                        <p>Enter a diagnosis to see AI processing results</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Search Tab -->
+                    <div class="tab-content" id="search">
+                        <div class="demo-section">
+                            <h3>Terminology Search</h3>
+                            <p>Search through NAMASTE codes and get intelligent autocomplete suggestions</p>
+                            
+                            <div class="search-demo">
+                                <div class="search-input-group">
+                                    <input type="text" id="searchInput" placeholder="Enter a medical term (e.g., 'Hridroga', 'Amavata')" class="search-input">
+                                    <select id="systemFilter" class="system-filter">
+                                        <option value="">All Systems</option>
+                                        <option value="NAMASTE-Ayurveda">NAMASTE-Ayurveda</option>
+                                        <option value="NAMASTE-Siddha">NAMASTE-Siddha</option>
+                                        <option value="NAMASTE-Unani">NAMASTE-Unani</option>
+                                    </select>
+                                    <button id="searchBtn" class="btn btn-primary">
+                                        <i class="fas fa-search"></i>
+                                        Search
+                                    </button>
+                                </div>
+                                
+                                <div id="searchResults" class="search-results">
+                                    <div class="demo-placeholder">
+                                        <i class="fas fa-search"></i>
+                                        <p>Enter a search term to see results</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Translation Tab -->
+                    <div class="tab-content" id="translate">
+                        <div class="demo-section">
+                            <h3>NAMASTE ↔ ICD-11 Translation</h3>
+                            <p>Translate between traditional medicine codes and modern healthcare classifications</p>
+                            
+                            <div class="translation-demo">
+                                <div class="translation-input">
+                                    <div class="input-group">
+                                        <label>NAMASTE Code</label>
+                                        <input type="text" id="namasteCode" placeholder="Enter NAMASTE code (e.g., NAM-0010)" class="form-input">
+                                        <button id="translateBtn" class="btn btn-primary">
+                                            <i class="fas fa-exchange-alt"></i>
+                                            Translate to ICD-11
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div id="translationResults" class="translation-results">
+                                    <div class="demo-placeholder">
+                                        <i class="fas fa-exchange-alt"></i>
+                                        <p>Enter a NAMASTE code to see translation results</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upload Tab -->
+                    <div class="tab-content" id="upload">
+                        <div class="demo-section">
+                            <h3>Data Upload & Processing</h3>
+                            <p>Upload NAMASTE CSV files or FHIR Bundles for processing</p>
+                            
+                            <div class="upload-demo">
+                                <div class="upload-options">
+                                    <div class="upload-option">
+                                        <h4>NAMASTE CSV Upload</h4>
+                                        <p>Upload CSV files containing NAMASTE codes and terminology</p>
+                                        <div class="file-upload">
+                                            <input type="file" id="csvUpload" accept=".csv" class="file-input">
+                                            <label for="csvUpload" class="file-label">
+                                                <i class="fas fa-file-csv"></i>
+                                                Choose CSV File
+                                            </label>
+                                        </div>
+                                        <button id="uploadCsvBtn" class="btn btn-primary">
+                                            <i class="fas fa-upload"></i>
+                                            Upload CSV
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="upload-option">
+                                        <h4>FHIR Bundle Upload</h4>
+                                        <p>Upload FHIR R4 compliant bundles for processing</p>
+                                        <div class="file-upload">
+                                            <input type="file" id="bundleUpload" accept=".json" class="file-input">
+                                            <label for="bundleUpload" class="file-label">
+                                                <i class="fas fa-file-code"></i>
+                                                Choose JSON File
+                                            </label>
+                                        </div>
+                                        <button id="uploadBundleBtn" class="btn btn-primary">
+                                            <i class="fas fa-upload"></i>
+                                            Upload Bundle
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div id="uploadResults" class="upload-results">
+                                    <div class="demo-placeholder">
+                                        <i class="fas fa-upload"></i>
+                                        <p>Upload a file to see processing results</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vision Analysis Tab -->
+                    <div class="tab-content" id="vision">
+                        <div class="demo-section">
+                            <h3>🔍 AI-Powered Medical Report Digitization</h3>
+                            <p>Upload medical reports (Lab reports, Prescriptions, Discharge summaries, Diagnosis reports) and get instant digitization with NAMASTE-ICD11 codes</p>
+                            
+                            <div class="vision-demo">
+                                <div class="vision-upload">
+                                    <div class="upload-area" id="imageUploadArea">
+                                        <div class="upload-content">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <h4>Upload Medical Report</h4>
+                                            <p>Drag & drop or click to select report image</p>
+                                            <p class="supported-formats">Supported: JPEG, PNG, GIF, BMP, TIFF, WEBP</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="imageFile" accept="image/*" style="display: none;">
+                                    
+                                    <div class="image-options">
+                                        <div class="form-group">
+                                            <label for="imageType">Report Type</label>
+                                            <select id="imageType">
+                                                <option value="unknown">Auto-detect</option>
+                                                <option value="lab_report">Lab Report</option>
+                                                <option value="prescription">Prescription</option>
+                                                <option value="discharge_summary">Discharge Summary</option>
+                                                <option value="diagnosis_report">Diagnosis Report</option>
+                                                <option value="pathology_report">Pathology Report</option>
+                                                <option value="radiology_report">Radiology Report</option>
+                                                <option value="consultation_note">Consultation Note</option>
+                                                <option value="progress_note">Progress Note</option>
+                                                <option value="opd_slip">OPD Slip</option>
+                                                <option value="medical_certificate">Medical Certificate</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <button type="button" id="selectFileBtn" class="btn btn-secondary">
+                                            <i class="fas fa-folder-open"></i> Select File
+                                        </button>
+                                        <button id="analyzeImageBtn" class="btn btn-primary" disabled>
+                                            <i class="fas fa-search"></i> Digitize Report
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div id="imagePreview" class="image-preview" style="display: none;">
+                                    <img id="previewImg" src="" alt="Preview">
+                                    <div class="image-info">
+                                        <span id="imageName"></span>
+                                        <span id="imageSize"></span>
+                                    </div>
+                                </div>
+                                
+                                <div id="visionResults" class="vision-results">
+                                    <div class="demo-placeholder">
+                                        <i class="fas fa-file-medical"></i>
+                                        <p>Upload a medical report to see AI digitization results</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Tab -->
+                    <div class="tab-content" id="analytics">
+                        <div class="demo-section">
+                            <h3>System Analytics</h3>
+                            <p>View system performance, mapping statistics, and usage analytics</p>
+                            
+                            <div class="analytics-demo">
+                                <div class="analytics-grid">
+                                    <div class="analytics-card">
+                                        <div class="metric">
+                                            <div class="metric-value">1,247</div>
+                                            <div class="metric-label">Total Mappings</div>
+                                        </div>
+                                        <div class="metric-trend">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <span>+12% this month</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="analytics-card">
+                                        <div class="metric">
+                                            <div class="metric-value">94.2%</div>
+                                            <div class="metric-label">Mapping Accuracy</div>
+                                        </div>
+                                        <div class="metric-trend">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <span>+2.1% this month</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="analytics-card">
+                                        <div class="metric">
+                                            <div class="metric-value">3,456</div>
+                                            <div class="metric-label">API Calls Today</div>
+                                        </div>
+                                        <div class="metric-trend">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <span>+8% this week</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="analytics-card">
+                                        <div class="metric">
+                                            <div class="metric-value">156ms</div>
+                                            <div class="metric-label">Avg Response Time</div>
+                                        </div>
+                                        <div class="metric-trend">
+                                            <i class="fas fa-arrow-down"></i>
+                                            <span>-15ms this month</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="analytics-charts">
+                                    <div class="chart-container">
+                                        <h4>Mapping Confidence Distribution</h4>
+                                        <div class="chart-placeholder">
+                                            <i class="fas fa-chart-pie"></i>
+                                            <p>Confidence distribution chart would appear here</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chart-container">
+                                        <h4>Usage Over Time</h4>
+                                        <div class="chart-placeholder">
+                                            <i class="fas fa-chart-line"></i>
+                                            <p>Usage trends chart would appear here</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Documentation -->
+    <section class="api-docs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">API Documentation</h2>
+                <p class="section-subtitle">Integrate Hubble into your healthcare applications</p>
+            </div>
+            
+            <div class="api-docs-content">
+                <div class="api-endpoint">
+                    <div class="endpoint-header">
+                        <span class="method get">GET</span>
+                        <span class="endpoint-path">/autocomplete/</span>
+                        <span class="endpoint-description">Search and autocomplete medical terms</span>
+                    </div>
+                    <div class="endpoint-details">
+                        <h4>Parameters:</h4>
+                        <ul>
+                            <li><code>term</code> (string): Search term</li>
+                            <li><code>limit</code> (integer): Maximum results (default: 20)</li>
+                            <li><code>system</code> (string): Filter by system (optional)</li>
+                        </ul>
+                        <h4>Example Response:</h4>
+                        <pre><code>{
+  "concepts": [
+    {
+      "code": "NAM-0010",
+      "display": "Hridroga",
+      "system": "NAMASTE-Ayurveda",
+      "synonyms": ["Heart disease"]
+    }
+  ],
+  "total": 1
+}</code></pre>
+                    </div>
+                </div>
+                
+                <div class="api-endpoint">
+                    <div class="endpoint-header">
+                        <span class="method post">POST</span>
+                        <span class="endpoint-path">/nlp/</span>
+                        <span class="endpoint-description">AI-powered diagnosis processing</span>
+                    </div>
+                    <div class="endpoint-details">
+                        <h4>Request Body:</h4>
+                        <pre><code>{
+  "diagnosis_text": "Patient has diabetes with heart complications",
+  "input_language": "en",
+  "doctor_id": "optional"
+}</code></pre>
+                        <h4>Example Response:</h4>
+                        <pre><code>{
+  "diagnosis_id": "uuid",
+  "original_text": "Patient has diabetes...",
+  "processed_text": "Patient has diabetes...",
+  "nlp_analysis": {...},
+  "ayush_matches": [...],
+  "biomedical_matches": [...],
+  "confidence_scores": {...}
+}</code></pre>
+                    </div>
+                </div>
+                
+                <div class="api-endpoint">
+                    <div class="endpoint-header">
+                        <span class="method post">POST</span>
+                        <span class="endpoint-path">/translate/</span>
+                        <span class="endpoint-description">Translate NAMASTE codes to ICD-11</span>
+                    </div>
+                    <div class="endpoint-details">
+                        <h4>Request Body:</h4>
+                        <pre><code>{
+  "source_code": "NAM-0010",
+  "source_system": "NAMASTE-Ayurveda",
+  "target_system": "ICD-11"
+}</code></pre>
+                        <h4>Example Response:</h4>
+                        <pre><code>{
+  "mappings": [
+    {
+      "target_code": "I25.9",
+      "target_display": "Chronic ischemic heart disease",
+      "equivalence": "related",
+      "confidence": 0.85
+    }
+  ]
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section class="getting-started">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Getting Started</h2>
+                <p class="section-subtitle">Quick start guide for developers</p>
+            </div>
+            
+            <div class="getting-started-content">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Get API Access</h3>
+                        <p>Sign up for a free API key to start using Hubble services in your applications.</p>
+                        <a href="contact.html" class="btn btn-secondary">Request API Key</a>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Install SDK</h3>
+                        <p>Use our SDKs for easy integration with your preferred programming language.</p>
+                        <div class="code-snippet">
+                            <pre><code>pip install hubble-sdk</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Make Your First API Call</h3>
+                        <p>Start with a simple search or translation request to test the integration.</p>
+                        <div class="code-snippet">
+                            <pre><code>from hubble import HubbleClient
+
+client = HubbleClient(api_key="your-api-key")
+results = client.search("Hridroga")
+print(results)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>Hubble</span>
+                    </div>
+                    <p>Bridging traditional medicine with modern healthcare through intelligent terminology mapping.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solution.html">Our Solution</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="demo.html">Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> contact@hubble.in</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hubble. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
