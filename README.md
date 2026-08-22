@@ -1,5 +1,11 @@
 # Hubble Website
 
+## Demo Video
+https://youtu.be/IBT73cBBR8o
+
+## PPT
+[SIH2026-CommitIssues.pptx](SIH2026-CommitIssues.pptx)
+
 A beautiful, responsive website for the Hubble project - a FHIR-compliant terminology microservice for NAMASTE-ICD11 integration.
 
 ## 🌟 Features
