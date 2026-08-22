@@ -1,0 +1,6 @@
+namaste_code,disease_name,system,description,icd11_code,icd11_description
+AYU-001,Jvara,Ayurveda,Fever and inflammatory conditions,MG26,Fever of other or unknown origin
+AYU-002,Kasa,Ayurveda,Cough and respiratory distress,MD24,Cough
+SID-010,Gunmam,Siddha,Gastrointestinal disorders,DA90,Peptic ulcer disease
+UNA-005,Humma,Unani,Fever of acute nature,MG26,Fever of other or unknown origin
+AYU-042,Hridroga,Ayurveda,Heart diseases and cardiovascular conditions,BA4Z,Ischaemic heart diseases, unspecified
