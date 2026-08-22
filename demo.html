@@ -22,6 +22,7 @@
                 <li><a href="solution.html" class="nav-link">Solution</a></li>
                 <li><a href="team.html" class="nav-link">Team</a></li>
                 <li><a href="demo.html" class="nav-link active">Demo</a></li>
+                <li><a href="semantic-search.html" class="nav-link">AI Search</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -95,6 +96,7 @@
                                     <div class="form-group">
                                         <label for="inputLanguage">Input Language</label>
                                         <select id="inputLanguage">
+                                            <option value="auto" selected>Auto-detect</option>
                                             <option value="en">English</option>
                                             <option value="hi">Hindi (हिंदी)</option>
                                             <option value="ta">Tamil (தமிழ்)</option>
@@ -106,10 +108,24 @@
                                             <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
                                         </select>
                                     </div>
-                                    
+
+                                    <div class="form-group ai-key-group">
+                                        <label for="geminiApiKey">
+                                            <i class="fas fa-key"></i> Gemini API Key
+                                            <span class="ai-key-optional">(optional — enables real AI in any language)</span>
+                                        </label>
+                                        <input type="password" id="geminiApiKey" placeholder="Paste your Google Gemini API key (AIza…)" autocomplete="off" spellcheck="false">
+                                        <small class="ai-key-hint">
+                                            Stored only in this browser. Get a free key from
+                                            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a>.
+                                            Leave blank to use the built-in grounded engine.
+                                        </small>
+                                    </div>
+
                                     <button onclick="processDiagnosis()" class="btn btn-primary">
                                         <i class="fas fa-brain"></i> Process with AI
                                     </button>
+                                    <div id="aiEngineStatus" class="ai-engine-status"></div>
                                 </div>
                                 
                                 <div id="diagnosisResults" class="diagnosis-results">
@@ -562,6 +578,16 @@ print(results)</code></pre>
         </div>
     </footer>
 
+    <!-- DEMO ONLY: hardcoded Gemini key so the AI diagnosis works without pasting.
+         ⚠ This key is visible to anyone who views the page. Rotate/delete it after
+         the demo at https://aistudio.google.com/app/apikey and never commit it to a
+         public repo. Remove this block to fall back to the built-in offline engine. -->
+    <script>
+        window.HUBBLE_GEMINI_CONFIG = {
+            apiKey: 'GEMINI_API_KEY_HERE',
+            model: 'gemini-3.6-flash-lite'
+        };
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

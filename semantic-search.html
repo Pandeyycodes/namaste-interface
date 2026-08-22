@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Semantic Search - Hubble</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>Hubble</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="solution.html" class="nav-link">Solution</a></li>
+                <li><a href="team.html" class="nav-link">Team</a></li>
+                <li><a href="demo.html" class="nav-link">Demo</a></li>
+                <li><a href="semantic-search.html" class="nav-link active">AI Search</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">AI Semantic Search</h1>
+                <p class="hero-subtitle">Ask in plain language &mdash; in any Indian language &mdash; and find the right NAMASTE &amp; ICD-11 codes. No exact spellings required.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search -->
+    <section class="demo-interface">
+        <div class="container">
+            <div class="demo-content">
+                <div class="demo-header">
+                    <h2 class="section-title">Describe what you're looking for</h2>
+                    <p class="section-subtitle">Keyword search needs the exact term. Semantic search understands intent.</p>
+                </div>
+
+                <div class="semantic-panel">
+                    <div class="semantic-search-box">
+                        <i class="fas fa-wand-magic-sparkles semantic-search-icon"></i>
+                        <input
+                            type="text"
+                            id="semanticQuery"
+                            class="semantic-input"
+                            placeholder="e.g. show me digestive disorders related to acidity"
+                            autocomplete="off">
+                        <button id="semanticSearchBtn" class="btn btn-primary semantic-btn">
+                            <i class="fas fa-search"></i>
+                            Search
+                        </button>
+                    </div>
+
+                    <div class="semantic-examples">
+                        <span class="semantic-examples-label">Try:</span>
+                        <button class="semantic-chip" data-query="show me digestive disorders related to acidity">digestive disorders related to acidity</button>
+                        <button class="semantic-chip" data-query="साँस लेने में तकलीफ से जुड़ी बीमारियाँ">साँस लेने में तकलीफ (Hindi)</button>
+                        <button class="semantic-chip" data-query="conditions that affect the heart and circulation">heart &amp; circulation</button>
+                        <button class="semantic-chip" data-query="joint and bone pain in elderly patients">joint pain in elderly</button>
+                        <button class="semantic-chip" data-query="metabolic problems like high blood sugar">high blood sugar</button>
+                    </div>
+
+                    <div class="semantic-engine-status">
+                        <span id="engineBadge" class="engine-badge">
+                            <i class="fas fa-circle-notch"></i> Checking AI engine&hellip;
+                        </span>
+                    </div>
+                </div>
+
+                <div id="semanticResults" class="semantic-results">
+                    <div class="demo-placeholder">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                        <p>Ask a question above to search the terminology semantically</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="api-docs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Generative AI ranks. The verified dataset supplies every code.</p>
+            </div>
+
+            <div class="semantic-steps">
+                <div class="semantic-step">
+                    <div class="step-number">1</div>
+                    <h3>Understand the intent</h3>
+                    <p>Your natural-language or Hindi query is sent to Gemini along with the full NAMASTE &harr; ICD-11 terminology catalogue as grounding context.</p>
+                </div>
+                <div class="semantic-step">
+                    <div class="step-number">2</div>
+                    <h3>Rank, don't invent</h3>
+                    <p>The model returns only <em>existing</em> NAMASTE codes ranked by relevance, each with a one-line clinical rationale. It never generates a code.</p>
+                </div>
+                <div class="semantic-step">
+                    <div class="step-number">3</div>
+                    <h3>Resolve from source of truth</h3>
+                    <p>Each ranked code is joined back to the verified dataset to pull the authoritative TM2 and ICD-11 biomedicine codes &mdash; so hallucinated codes are structurally impossible.</p>
+                </div>
+                <div class="semantic-step">
+                    <div class="step-number">4</div>
+                    <h3>Always available</h3>
+                    <p>If the AI service is unreachable, a local semantic-similarity fallback takes over instantly. The demo never breaks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>Hubble</span>
+                    </div>
+                    <p>Bridging traditional medicine with modern healthcare through intelligent terminology mapping.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solution.html">Our Solution</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="demo.html">Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> contact@hubble.in</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hubble. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="semantic-search.js"></script>
+</body>
+</html>
