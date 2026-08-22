@@ -41,7 +41,7 @@ from pathlib import Path
 # rotate it after the hackathon and delete this literal before publishing.
 API_KEY = os.environ.get(
     "GEMINI_API_KEY",
-    "AQ.Ab8RN6LKK8cMMHBHlcK14jubwiLVhUbrAbd3hll8ZRpj1FBnNw",
+    "GEMINI_API_KEY_HERE",
 )
 
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-flash-lite-latest")
